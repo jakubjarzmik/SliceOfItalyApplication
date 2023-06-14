@@ -1,8 +1,5 @@
 ﻿using SliceOfItalyApplication.Services;
-using SliceOfItalyApplication.Views;
-using System;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace SliceOfItalyApplication
 {

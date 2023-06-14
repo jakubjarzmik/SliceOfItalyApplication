@@ -3,6 +3,8 @@
        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
        xmlns:local="clr-namespace:SliceOfItalyApplication.Views"
        xmlns:categoryViews="clr-namespace:SliceOfItalyApplication.Views.CategoryViews;assembly=SliceOfItalyApplication"
+       xmlns:customerViews="clr-namespace:SliceOfItalyApplication.Views.CustomerViews;assembly=SliceOfItalyApplication"
+       xmlns:orderViews="clr-namespace:SliceOfItalyApplication.Views.OrderViews;assembly=SliceOfItalyApplication"
        Title="SliceOfItalyApplication"
        x:Class="SliceOfItalyApplication.AppShell">
 
@@ -88,6 +90,16 @@
                 Icon="icon_feed.png">
         <ShellContent Route="CategoryPage"
                       ContentTemplate="{DataTemplate categoryViews:CategoryPage}" />
+    </FlyoutItem>
+    <FlyoutItem Title="Customer"
+                Icon="icon_feed.png">
+        <ShellContent Route="CustomerPage"
+                      ContentTemplate="{DataTemplate customerViews:CustomerPage}" />
+    </FlyoutItem>
+    <FlyoutItem Title="Order"
+                Icon="icon_feed.png">
+        <ShellContent Route="OrderPage"
+                      ContentTemplate="{DataTemplate orderViews:OrderPage}" />
     </FlyoutItem>
 
     <!-- When the Flyout is visible this will be a menu item you can tie a click behavior to  -->

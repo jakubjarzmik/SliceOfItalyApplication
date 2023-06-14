@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace SliceOfItalyApplication.Models
+﻿namespace SliceOfItalyApplication.Models
 {
     public class Item
     {

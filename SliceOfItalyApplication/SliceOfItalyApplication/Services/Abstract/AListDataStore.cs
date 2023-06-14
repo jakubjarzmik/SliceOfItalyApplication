@@ -51,16 +51,5 @@ namespace SliceOfItalyApplication.Services.Abstract
             await RefreshListFromService();
             return await Task.FromResult(Items);
         }
-
-        public Task<bool> DeleteItemAsync(string id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<T> GetItemAsync(string id)
-        {
-            throw new NotImplementedException();
-        }
     }
-
 }

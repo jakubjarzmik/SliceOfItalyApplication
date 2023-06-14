@@ -27,4 +27,25 @@
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2578" />  
     <PackageReference Include="Xamarin.Essentials" Version="1.7.5" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Views\OrderViews\OrderDetails.xaml.cs">
+      <DependentUpon>OrderDetails.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\OrderViews\OrderPage.xaml.cs">
+      <DependentUpon>OrderPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\OrderViews\NewOrderPage.xaml.cs">
+      <DependentUpon>NewOrderPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\CustomerViews\CustomerDetails.xaml.cs">
+      <DependentUpon>CustomerDetails.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\CustomerViews\CustomerPage.xaml.cs">
+      <DependentUpon>CustomerPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\CustomerViews\NewCustomerPage.xaml.cs">
+      <DependentUpon>NewCustomerPage.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
 </Project>

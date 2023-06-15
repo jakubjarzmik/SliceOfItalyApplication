@@ -21,8 +21,8 @@
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <StackLayout Padding="10"
-                                 x:DataType="model:Order"> 
-                        <Label Text="{Binding Customer}" 
+                                 x:DataType="model:OrderForView"> 
+                        <Label Text="{Binding CustomerName}" 
                             LineBreakMode="NoWrap" 
                             Style="{DynamicResource ListItemTextStyle}"
                                FontSize="16" />

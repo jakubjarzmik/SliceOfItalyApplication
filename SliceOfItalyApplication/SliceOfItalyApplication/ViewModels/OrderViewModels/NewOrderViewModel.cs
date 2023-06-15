@@ -6,7 +6,7 @@ using SliceOfItalyApplication.ViewModels.Abstract;
 
 namespace SliceOfItalyApplication.ViewModels.OrderViewModels
 {
-    public class NewOrderViewModel : ANewViewModel<Order>
+    public class NewOrderViewModel : ANewViewModel<OrderForView>
     {
         public NewOrderViewModel()
             : base()
@@ -14,7 +14,7 @@ namespace SliceOfItalyApplication.ViewModels.OrderViewModels
             _selectedCustomer = new Customer();
             var customerDataStore = new CustomerDataStore();
             customerDataStore.RefreshListFromService();
-            _customers = customerDataStore.Items;
+            Customers = customerDataStore.Items;
         }
 
         #region Fields
@@ -22,19 +22,12 @@ namespace SliceOfItalyApplication.ViewModels.OrderViewModels
         private Customer _selectedCustomer;
         private double _totalPrice;
         private DateTime _orderDate = DateTime.Now;
-        private List<Customer> _customers;
 
         #endregion
 
         #region Properties
 
-        public List<Customer> Customers
-        {
-            get
-            {
-                return _customers;
-            }
-        }
+        public List<Customer> Customers { get; }
 
         public Customer SelectedCustomer
         {
@@ -54,9 +47,9 @@ namespace SliceOfItalyApplication.ViewModels.OrderViewModels
 
         #endregion
 
-        public override Order SetItem()
+        public override OrderForView SetItem()
         {
-            return new Order
+            return new OrderForView
             {
                 Id = 0,
                 TotalPrice = TotalPrice,

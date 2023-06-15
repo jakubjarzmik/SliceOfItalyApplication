@@ -4,7 +4,7 @@ using SliceOfItalyApplication.ViewModels.Abstract;
 
 namespace SliceOfItalyApplication.ViewModels.OrderViewModels
 {
-    public class OrderDetailsViewModel : AItemDetailsViewModel<Order>
+    public class OrderDetailsViewModel : AItemDetailsViewModel<OrderForView>
     {
         private double _totalPrice;
         private DateTime _orderDate;
@@ -43,12 +43,12 @@ namespace SliceOfItalyApplication.ViewModels.OrderViewModels
             get => _modifiedAt;
             set => SetProperty(ref _modifiedAt, value);
         }
-        public override void LoadProperties(Order item)
+        public override void LoadProperties(OrderForView item)
         {
             Id = item.Id;
             TotalPrice = item.TotalPrice;
             OrderDate = item.OrderDate.DateTime;
-            Customer = item.Customer.Name;
+            Customer = item.CustomerName;
             ModifiedAt = item.ModifiedAt?.DateTime ?? DateTime.Now;
             CreatedAt = item.CreatedAt.DateTime;
         }

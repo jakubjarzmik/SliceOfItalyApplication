@@ -5,7 +5,7 @@ using Xamarin.Forms;
 
 namespace SliceOfItalyApplication.ViewModels.OrderViewModels
 {
-    public class OrderViewModel : AListViewModel<Order>
+    public class OrderViewModel : AListViewModel<OrderForView>
     {
         public OrderViewModel()
             : base("Orders")
@@ -17,7 +17,7 @@ namespace SliceOfItalyApplication.ViewModels.OrderViewModels
             await Shell.Current.GoToAsync(nameof(NewOrderPage));
         }
 
-        public override async void OnItemSelected(Order item)
+        public override async void OnItemSelected(OrderForView item)
         {
             if (item == null)
                 return;

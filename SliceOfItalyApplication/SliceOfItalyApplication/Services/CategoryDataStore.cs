@@ -33,9 +33,10 @@ namespace SliceOfItalyApplication.Services
             return await Service.CategoriesGETAsync(id);
         }
 
-        public override async Task RefreshListFromService()
+        public override Task RefreshListFromService()
         {
-            Items = (await Service.CategoriesAllAsync()).ToList();
+            Items = Service.CategoriesAllAsync().Result.ToList();
+            return Task.CompletedTask;
         }
 
         public override async Task<bool> UpdateItemInService(Category item)

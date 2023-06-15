@@ -33,9 +33,10 @@ namespace SliceOfItalyApplication.Services
             return await Service.OrdersGETAsync(id);
         }
 
-        public override async Task RefreshListFromService()
+        public override Task RefreshListFromService()
         {
-            Items = (await Service.OrdersAllAsync()).ToList();
+            Items = Service.OrdersAllAsync().Result.ToList();
+            return Task.CompletedTask;
         }
 
         public override async Task<bool> UpdateItemInService(OrderForView item)

@@ -57,8 +57,9 @@ namespace SliceOfItalyApplication.ViewModels.OrderViewModels
                 CreatedAt = DateTime.Now,
                 ModifiedAt = DateTime.Now,
                 CustomerId = _selectedCustomer.Id,
+                CustomerName = _selectedCustomer.Name,
                 IsActive = true,
-                OrderDishes = null
+                OrderDishes = new List<OrderDishForView>()
             };
         }
 

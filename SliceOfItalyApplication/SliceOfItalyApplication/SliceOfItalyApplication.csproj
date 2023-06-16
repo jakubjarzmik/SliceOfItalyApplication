@@ -29,6 +29,18 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Views\DishViews\NewDishPage.xaml.cs">
+      <DependentUpon>NewDishPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\DishViews\DishDetails.xaml.cs">
+      <DependentUpon>DishDetails.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\DishViews\DishPage.xaml.cs">
+      <DependentUpon>DishPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\OrderDishViews\NewOrderDishPage.xaml.cs">
+      <DependentUpon>NewOrderDishPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\OrderViews\OrderDetails.xaml.cs">
       <DependentUpon>OrderDetails.xaml</DependentUpon>
     </Compile>

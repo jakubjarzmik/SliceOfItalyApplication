@@ -52,7 +52,7 @@ namespace SliceOfItalyApplication.ViewModels.OrderViewModels
             return new OrderForView
             {
                 Id = 0,
-                TotalPrice = TotalPrice,
+                TotalPrice = 0,
                 OrderDate = OrderDate,
                 CreatedAt = DateTime.Now,
                 ModifiedAt = DateTime.Now,

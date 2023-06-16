@@ -1,23 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="SliceOfItalyApplication.Views.OrderViews.NewOrderPage"
+             x:Class="SliceOfItalyApplication.Views.OrderDishViews.NewOrderDishPage"
              Shell.PresentationMode="ModalAnimated"
-             Title="New order ">
+             Title="New dish ">
 
     <ContentPage.Content>
         <StackLayout Spacing="3"
                      Padding="15">
-            <Picker Title="Select Customer"
-                    ItemsSource="{Binding Customers}"
+            <Picker Title="Select Dish"
+                    ItemsSource="{Binding Dishes}"
                     ItemDisplayBinding="{Binding Name}"
-                    SelectedItem="{Binding SelectedCustomer}"
-                    FontSize="Medium"
-                    Margin="0" />
-            <Label Text="Order Date"
-                   FontSize="Medium" />
-            <Editor Text="{Binding OrderDate, Mode=TwoWay}"
-                    AutoSize="TextChanges"
+                    SelectedItem="{Binding SelectedDish}"
                     FontSize="Medium"
                     Margin="0" />
             <StackLayout Orientation="Horizontal">
@@ -30,5 +24,4 @@
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>
-
 </ContentPage>

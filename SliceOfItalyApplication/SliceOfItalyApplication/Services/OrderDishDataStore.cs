@@ -6,29 +6,29 @@ using SliceOfItalyApplication.Services.Abstract;
 
 namespace SliceOfItalyApplication.Services
 {
-    public class OrderDishDataStore : AListDataStore<OrderDish>
+    public class OrderDishDataStore : AListDataStore<OrderDishForView>
     {
         public OrderDishDataStore() : base()
         {
 
         }
 
-        public override async Task<OrderDish> AddItemToService(OrderDish item)
+        public override async Task<OrderDishForView> AddItemToService(OrderDishForView item)
         {
             return await Service.OrderDishesPOSTAsync(item);
         }
 
-        public override async Task<bool> DeleteItemFromService(OrderDish item)
+        public override async Task<bool> DeleteItemFromService(OrderDishForView item)
         {
             return await Service.OrderDishesDELETEAsync(item.Id).HandleRequest();
         }
 
-        public override async Task<OrderDish> Find(OrderDish item)
+        public override async Task<OrderDishForView> Find(OrderDishForView item)
         {
             return await Service.OrderDishesGETAsync(item.Id);
         }
 
-        public override async Task<OrderDish> Find(int id)
+        public override async Task<OrderDishForView> Find(int id)
         {
             return await Service.OrderDishesGETAsync(id);
         }
@@ -39,7 +39,7 @@ namespace SliceOfItalyApplication.Services
             return Task.CompletedTask;
         }
 
-        public override async Task<bool> UpdateItemInService(OrderDish item)
+        public override async Task<bool> UpdateItemInService(OrderDishForView item)
         {
             return await Service.OrderDishesPUTAsync(item.Id, item).HandleRequest();
         }

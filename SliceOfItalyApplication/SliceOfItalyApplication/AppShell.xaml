@@ -5,6 +5,7 @@
        xmlns:categoryViews="clr-namespace:SliceOfItalyApplication.Views.CategoryViews;assembly=SliceOfItalyApplication"
        xmlns:customerViews="clr-namespace:SliceOfItalyApplication.Views.CustomerViews;assembly=SliceOfItalyApplication"
        xmlns:orderViews="clr-namespace:SliceOfItalyApplication.Views.OrderViews;assembly=SliceOfItalyApplication"
+       xmlns:dishViews="clr-namespace:SliceOfItalyApplication.Views.DishViews;assembly=SliceOfItalyApplication"
        Title="SliceOfItalyApplication"
        x:Class="SliceOfItalyApplication.AppShell">
 
@@ -100,6 +101,11 @@
                 Icon="icon_feed.png">
         <ShellContent Route="OrderPage"
                       ContentTemplate="{DataTemplate orderViews:OrderPage}" />
+    </FlyoutItem>
+    <FlyoutItem Title="Dish"
+                Icon="icon_feed.png">
+        <ShellContent Route="DishPage"
+                      ContentTemplate="{DataTemplate dishViews:DishPage}" />
     </FlyoutItem>
 
     <!-- When the Flyout is visible this will be a menu item you can tie a click behavior to  -->

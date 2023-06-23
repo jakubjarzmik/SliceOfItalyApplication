@@ -1,6 +1,5 @@
 ﻿using System;
 using SliceOfItalyApplication.Service.Reference;
-using SliceOfItalyApplication.Services;
 using SliceOfItalyApplication.ViewModels.Abstract;
 
 namespace SliceOfItalyApplication.ViewModels.AddressViewModels

@@ -3,13 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SliceOfItalyApplication.Views.AboutPage"
              xmlns:vm="clr-namespace:SliceOfItalyApplication.ViewModels"
-             Title="{Binding Title}"
-             >
-    
+             Title="{Binding Title}">
+
     <ContentPage.BindingContext>
         <vm:AboutViewModel />
     </ContentPage.BindingContext>
-    
+
     <ContentPage.Resources>
         <ResourceDictionary>
             <Color x:Key="Accent">#F5F5DC</Color>
@@ -21,10 +20,16 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
-            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
-                <ContentView Padding="0,40,0,40" VerticalOptions="FillAndExpand">
-                    <Image Source="xamarin_logo.png" VerticalOptions="Center" HeightRequest="128" />
+        <StackLayout VerticalOptions="FillAndExpand"
+                     HorizontalOptions="Fill">
+            <StackLayout Orientation="Horizontal"
+                         HorizontalOptions="Center"
+                         VerticalOptions="Center">
+                <ContentView Padding="0,40,0,40"
+                             VerticalOptions="FillAndExpand">
+                    <Image Source="xamarin_logo.png"
+                           VerticalOptions="Center"
+                           HeightRequest="128" />
                 </ContentView>
             </StackLayout>
         </StackLayout>
@@ -64,7 +69,5 @@
                 </StackLayout>
             </StackLayout>
         </ScrollView>
-
     </Grid>
-
 </ContentPage>

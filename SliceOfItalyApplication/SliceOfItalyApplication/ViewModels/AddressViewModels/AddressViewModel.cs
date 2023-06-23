@@ -22,7 +22,6 @@ namespace SliceOfItalyApplication.ViewModels.AddressViewModels
             if (item == null)
                 return;
 
-            // This will push the ItemDetailPage onto the navigation stack
             await Shell.Current.GoToAsync($"{nameof(AddressDetails)}?{nameof(AddressDetailsViewModel.ItemId)}={item.Id}");
         }
     }

@@ -6,7 +6,6 @@ namespace SliceOfItalyApplication.Helpers
 {
     public static class PropertyUtil
     {
-        /// targetObject.CopyProperties(sourceObject)
         public static T CopyProperties<T, T2>(this T targetObject, T2 sourceObject) where T : class
         {
             if (targetObject == null || sourceObject == null)

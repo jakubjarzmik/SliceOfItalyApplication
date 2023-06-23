@@ -22,7 +22,6 @@ namespace SliceOfItalyApplication.ViewModels.CategoryViewModels
             if (item == null)
                 return;
 
-            // This will push the ItemDetailPage onto the navigation stack
             await Shell.Current.GoToAsync($"{nameof(CategoryDetails)}?{nameof(CategoryDetailsViewModel.ItemId)}={item.Id}");
         }
     }

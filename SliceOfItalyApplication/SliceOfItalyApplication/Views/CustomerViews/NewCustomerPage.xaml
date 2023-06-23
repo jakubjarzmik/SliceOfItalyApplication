@@ -3,20 +3,35 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SliceOfItalyApplication.Views.CustomerViews.NewCustomerPage"
              Title="New customer ">
-            
+
     <ContentPage.Content>
-        <StackLayout Spacing="3" Padding="15">
-            <Label Text="Name" FontSize="Medium" />
-            <Entry Text="{Binding Name, Mode=TwoWay}" FontSize="Medium" />
-            <Label Text="Email" FontSize="Medium" />
-            <Editor Text="{Binding Email, Mode=TwoWay}" AutoSize="TextChanges" FontSize="Medium" Margin="0" />
-            <Label Text="Phone" FontSize="Medium" />
-            <Editor Text="{Binding Phone, Mode=TwoWay}" AutoSize="TextChanges" FontSize="Medium" Margin="0" />
+        <StackLayout Spacing="3"
+                     Padding="15">
+            <Label Text="Name"
+                   FontSize="Medium" />
+            <Entry Text="{Binding Name, Mode=TwoWay}"
+                   FontSize="Medium" />
+            <Label Text="Email"
+                   FontSize="Medium" />
+            <Editor Text="{Binding Email, Mode=TwoWay}"
+                    AutoSize="TextChanges"
+                    FontSize="Medium"
+                    Margin="0" />
+            <Label Text="Phone"
+                   FontSize="Medium" />
+            <Editor Text="{Binding Phone, Mode=TwoWay}"
+                    AutoSize="TextChanges"
+                    FontSize="Medium"
+                    Margin="0" />
             <StackLayout Orientation="Horizontal">
-                <Button Text="Cancel" Command="{Binding CancelCommand}" HorizontalOptions="FillAndExpand"></Button>
-                <Button Text="Save" Command="{Binding SaveCommand}" HorizontalOptions="FillAndExpand"></Button>
+                <Button Text="Cancel"
+                        Command="{Binding CancelCommand}"
+                        HorizontalOptions="FillAndExpand"></Button>
+                <Button Text="Save"
+                        Command="{Binding SaveCommand}"
+                        HorizontalOptions="FillAndExpand"></Button>
             </StackLayout>
         </StackLayout>
-    </ContentPage.Content> 
+    </ContentPage.Content>
 
 </ContentPage>

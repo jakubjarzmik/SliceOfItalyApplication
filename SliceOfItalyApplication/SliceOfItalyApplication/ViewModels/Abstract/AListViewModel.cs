@@ -67,12 +67,6 @@ namespace SliceOfItalyApplication.ViewModels.Abstract
             GoToAddPage();
         }
 
-        public virtual void OnItemSelected(T item)
-        {
-            if (item == null)
-                return;
-            //await Shell.Current.GoToAsync($"{nameof(ClientDetailPage)}?{nameof(ClientDetailViewModel.ItemId)}={item.IdClient}");
-        }
+        public abstract void OnItemSelected(T item);
     }
-
 }

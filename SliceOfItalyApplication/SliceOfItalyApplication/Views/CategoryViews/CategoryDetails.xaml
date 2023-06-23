@@ -6,8 +6,8 @@
                  Padding="15">
         <StackLayout Orientation="Horizontal">
             <Label Text="Name:"
-                   FontSize="Medium" 
-                   FontAttributes="Bold"/>
+                   FontSize="Medium"
+                   FontAttributes="Bold" />
             <Label Text="{Binding Name}"
                    FontSize="Medium" />
         </StackLayout>

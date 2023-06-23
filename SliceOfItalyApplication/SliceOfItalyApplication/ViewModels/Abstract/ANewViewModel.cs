@@ -18,14 +18,12 @@ namespace SliceOfItalyApplication.ViewModels.Abstract
         public Command CancelCommand { get; }
         private async void OnCancel()
         {
-            // This will pop the current page off the navigation stack
             await Shell.Current.GoToAsync("..");
         }
         public abstract T SetItem();
         private async void OnSave()
         {
             await DataStore.AddItemAsync(SetItem());
-            // This will pop the current page off the navigation stack
             await Shell.Current.GoToAsync("..");
         }
     }

@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="SliceOfItalyApplication.Views.OrderViews.NewOrderPage"
+             x:Class="SliceOfItalyApplication.Views.AddressViews.NewAddressPage"
              Shell.PresentationMode="ModalAnimated"
-             Title="New order ">
+             Title="New Address">
 
     <ContentPage.Content>
         <StackLayout Spacing="3"
@@ -14,9 +14,19 @@
                     SelectedItem="{Binding SelectedCustomer}"
                     FontSize="Medium"
                     Margin="0" />
-            <Label Text="Order Date"
+            <Label Text="Address 1st line"
                    FontSize="Medium" />
-            <Editor Text="{Binding OrderDate, Mode=TwoWay}"
+            <Editor Text="{Binding AddressLine1, Mode=TwoWay}"
+                    AutoSize="TextChanges"
+                    FontSize="Medium"
+                    Margin="0" />
+            <Label Text="Postal Code"
+                   FontSize="Medium" />
+            <Entry Text="{Binding PostalCode, Mode=TwoWay}"
+                   FontSize="Medium" />
+            <Label Text="City"
+                   FontSize="Medium" />
+            <Editor Text="{Binding City, Mode=TwoWay}"
                     AutoSize="TextChanges"
                     FontSize="Medium"
                     Margin="0" />

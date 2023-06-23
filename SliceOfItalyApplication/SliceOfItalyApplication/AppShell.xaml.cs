@@ -1,4 +1,5 @@
 ﻿using System;
+using SliceOfItalyApplication.Views.AddressViews;
 using SliceOfItalyApplication.Views.CategoryViews;
 using SliceOfItalyApplication.Views.CustomerViews;
 using SliceOfItalyApplication.Views.DishViews;
@@ -22,6 +23,8 @@ namespace SliceOfItalyApplication
             Routing.RegisterRoute(nameof(NewDishPage), typeof(NewDishPage));
             Routing.RegisterRoute(nameof(DishDetails), typeof(DishDetails));
             Routing.RegisterRoute(nameof(NewOrderDishPage), typeof(NewOrderDishPage));
+            Routing.RegisterRoute(nameof(NewAddressPage), typeof(NewAddressPage));
+            Routing.RegisterRoute(nameof(AddressDetails), typeof(AddressDetails));
         }
 
         private async void OnMenuItemClicked(object sender, EventArgs e)

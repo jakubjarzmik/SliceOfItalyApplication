@@ -6,29 +6,29 @@ using SliceOfItalyApplication.Services.Abstract;
 
 namespace SliceOfItalyApplication.Services
 {
-    public class AddressDataStore : AListDataStore<Address>
+    public class AddressDataStore : AListDataStore<AddressForView>
     {
         public AddressDataStore() : base()
         {
             
         }
 
-        public override async Task<Address> AddItemToService(Address item)
+        public override async Task<AddressForView> AddItemToService(AddressForView item)
         {
             return await Service.AddressesPOSTAsync(item);
         }
 
-        public override async Task<bool> DeleteItemFromService(Address item)
+        public override async Task<bool> DeleteItemFromService(AddressForView item)
         {
             return await Service.AddressesDELETEAsync(item.Id).HandleRequest();
         }
 
-        public override async Task<Address> Find(Address item)
+        public override async Task<AddressForView> Find(AddressForView item)
         {
             return await Service.AddressesGETAsync(item.Id);
         }
 
-        public override async Task<Address> Find(int id)
+        public override async Task<AddressForView> Find(int id)
         {
             return await Service.AddressesGETAsync(id);
         }
@@ -39,7 +39,7 @@ namespace SliceOfItalyApplication.Services
             return Task.CompletedTask;
         }
 
-        public override async Task<bool> UpdateItemInService(Address item)
+        public override async Task<bool> UpdateItemInService(AddressForView item)
         {
             return await Service.AddressesPUTAsync(item.Id, item).HandleRequest();
         }

@@ -5,45 +5,116 @@
              Title="{Binding Title}"
              xmlns:model="clr-namespace:SliceOfItalyApplication.Service.Reference"
              xmlns:orderViewModels="clr-namespace:SliceOfItalyApplication.ViewModels.OrderViewModels;assembly=SliceOfItalyApplication"
+             xmlns:helpers="clr-namespace:SliceOfItalyApplication.Helpers;assembly=SliceOfItalyApplication"
              x:Name="BrowseItemsPage">
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Add" Command="{Binding AddItemCommand}" />
+        <ToolbarItem Text="Add"
+                     Command="{Binding AddItemCommand}" />
     </ContentPage.ToolbarItems>
-    <!--
-      x:DataType enables compiled bindings for better performance and compile time validation of binding expressions.
-      https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/data-binding/compiled-bindings
-    -->
-    <RefreshView x:DataType="orderViewModels:OrderViewModel" Command="{Binding LoadItemsCommand}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
-        <CollectionView x:Name="ItemsListView"
-                ItemsSource="{Binding Items}"
-                SelectionMode="None">
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <StackLayout Padding="10"
-                                 x:DataType="model:OrderForView"> 
-                        <Label Text="{Binding CustomerName}" 
-                            LineBreakMode="NoWrap" 
-                            Style="{DynamicResource ListItemTextStyle}"
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <DataTemplate x:Key="DefaultTemplate">
+                <StackLayout Padding="10"
+                             x:DataType="model:OrderForView">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Column="0"
+                               Text="Order ID:"
+                               LineBreakMode="NoWrap"
+                               Style="{DynamicResource ListItemTextStyle}"
                                FontSize="16" />
-                        <Label Text="{Binding TotalPrice}"
+                        <Label Grid.Column="1"
+                               Text="{Binding Id}"
+                               LineBreakMode="NoWrap"
+                               Style="{DynamicResource ListItemTextStyle}"
+                               FontSize="16" />
+                        <Label Grid.Column="2"
+                               Text="{Binding TotalPrice, StringFormat='{0} zł'}"
                                LineBreakMode="NoWrap"
                                Style="{DynamicResource ListItemDetailTextStyle}"
-                               FontSize="13" />
-                        <Label Text="{Binding OrderDate}"
+                               FontSize="16" />
+                    </Grid>
+
+                    <Label Text="{Binding CustomerName}"
+                           LineBreakMode="NoWrap"
+                           Style="{DynamicResource ListItemDetailTextStyle}"
+                           FontSize="16" />
+                    <Label Text="{Binding OrderDate, StringFormat='{0:HH:mm dd.MM.yyyy}'}"
+                           LineBreakMode="NoWrap"
+                           Style="{DynamicResource ListItemDetailTextStyle}"
+                           FontSize="13" />
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1"
+                                              Command="{Binding Source={RelativeSource AncestorType={x:Type orderViewModels:OrderViewModel}}, Path=ItemTapped}"
+                                              CommandParameter="{Binding .}">
+                        </TapGestureRecognizer>
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+            </DataTemplate>
+
+            <DataTemplate x:Key="AlternateTemplate">
+                <StackLayout Padding="10"
+                             x:DataType="model:OrderForView"
+                             BackgroundColor="#222222">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Column="0"
+                               Text="Order ID:"
+                               LineBreakMode="NoWrap"
+                               Style="{DynamicResource ListItemTextStyle}"
+                               FontSize="16" />
+                        <Label Grid.Column="1"
+                               Text="{Binding Id}"
+                               LineBreakMode="NoWrap"
+                               Style="{DynamicResource ListItemTextStyle}"
+                               FontSize="16" />
+                        <Label Grid.Column="2"
+                               Text="{Binding TotalPrice, StringFormat='{0} zł'}"
                                LineBreakMode="NoWrap"
                                Style="{DynamicResource ListItemDetailTextStyle}"
-                               FontSize="13" />
-                        <StackLayout.GestureRecognizers>
-                            <TapGestureRecognizer 
-                                NumberOfTapsRequired="1"
-                                Command="{Binding Source={RelativeSource AncestorType={x:Type orderViewModels:OrderViewModel}}, Path=ItemTapped}"		
-                                CommandParameter="{Binding .}">
-                            </TapGestureRecognizer>
-                        </StackLayout.GestureRecognizers>
-                    </StackLayout>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
+                               FontSize="16" />
+                    </Grid>
+
+                    <Label Text="{Binding CustomerName}"
+                           LineBreakMode="NoWrap"
+                           Style="{DynamicResource ListItemDetailTextStyle}"
+                           FontSize="16" />
+                    <Label Text="{Binding OrderDate, StringFormat='{0:HH:mm dd.MM.yyyy}'}"
+                           LineBreakMode="NoWrap"
+                           Style="{DynamicResource ListItemDetailTextStyle}"
+                           FontSize="13" />
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1"
+                                              Command="{Binding Source={RelativeSource AncestorType={x:Type orderViewModels:OrderViewModel}}, Path=ItemTapped}"
+                                              CommandParameter="{Binding .}">
+                        </TapGestureRecognizer>
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+            </DataTemplate>
+
+            <helpers:ColorTemplateSelector x:Key="ColorTemplateSelector"
+                                           DefaultTemplate="{StaticResource DefaultTemplate}"
+                                           AlternateTemplate="{StaticResource AlternateTemplate}" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <RefreshView x:DataType="orderViewModels:OrderViewModel"
+                 Command="{Binding LoadItemsCommand}"
+                 IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
+        <CollectionView x:Name="ItemsListView"
+                        ItemsSource="{Binding Items}"
+                        SelectionMode="None"
+                        ItemTemplate="{StaticResource ColorTemplateSelector}">
         </CollectionView>
     </RefreshView>
 </ContentPage>

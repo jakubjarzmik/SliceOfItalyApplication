@@ -2,18 +2,41 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SliceOfItalyApplication.Views.CategoryViews.CategoryDetails">
-    <StackLayout Spacing="20" Padding="15">
-            <Label Text="Name:" FontSize="Medium" />
-            <Label Text="{Binding Name}" FontSize="Small"/>
-            <Label Text="Description:" FontSize="Medium" />
-            <Label Text="{Binding Description}" FontSize="Small"/>
-            <Label Text="Created At:" FontSize="Medium" />
-            <Label Text="{Binding CreatedAt}" FontSize="Small"/>
-            <Label Text="Modified At:" FontSize="Medium" />
-            <Label Text="{Binding ModifiedAt}" FontSize="Small"/>
-            <StackLayout Orientation="Horizontal">
-                <Button Text="Cancel" Command="{Binding CancelCommand}" HorizontalOptions="FillAndExpand"></Button>
-                <Button Text="Delete" Command="{Binding DeleteCommand}" HorizontalOptions="FillAndExpand"></Button>
-            </StackLayout>
+    <StackLayout Spacing="20"
+                 Padding="15">
+        <StackLayout Orientation="Horizontal">
+            <Label Text="Name:"
+                   FontSize="Medium" 
+                   FontAttributes="Bold"/>
+            <Label Text="{Binding Name}"
+                   FontSize="Medium" />
         </StackLayout>
+        <Label Text="Description:"
+               FontSize="Medium"
+               FontAttributes="Bold" />
+        <Label Text="{Binding Description}"
+               FontSize="Small" />
+        <StackLayout Orientation="Horizontal">
+            <Label Text="Created At:"
+                   FontSize="Medium"
+                   FontAttributes="Bold" />
+            <Label Text="{Binding CreatedAt, StringFormat='{0:HH:mm:ss dd.MM.yyyy}'}"
+                   FontSize="Medium" />
+        </StackLayout>
+        <StackLayout Orientation="Horizontal">
+            <Label Text="Modified At:"
+                   FontSize="Medium"
+                   FontAttributes="Bold" />
+            <Label Text="{Binding ModifiedAt, StringFormat='{0:HH:mm:ss dd.MM.yyyy}'}"
+                   FontSize="Medium" />
+        </StackLayout>
+        <StackLayout Orientation="Horizontal">
+            <Button Text="Cancel"
+                    Command="{Binding CancelCommand}"
+                    HorizontalOptions="FillAndExpand"></Button>
+            <Button Text="Delete"
+                    Command="{Binding DeleteCommand}"
+                    HorizontalOptions="FillAndExpand"></Button>
+        </StackLayout>
+    </StackLayout>
 </ContentPage>

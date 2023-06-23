@@ -6,6 +6,7 @@
        xmlns:customerViews="clr-namespace:SliceOfItalyApplication.Views.CustomerViews;assembly=SliceOfItalyApplication"
        xmlns:orderViews="clr-namespace:SliceOfItalyApplication.Views.OrderViews;assembly=SliceOfItalyApplication"
        xmlns:dishViews="clr-namespace:SliceOfItalyApplication.Views.DishViews;assembly=SliceOfItalyApplication"
+       xmlns:addressViews="clr-namespace:SliceOfItalyApplication.Views.AddressViews;assembly=SliceOfItalyApplication"
        Title="SliceOfItalyApplication"
        x:Class="SliceOfItalyApplication.AppShell">
 
@@ -45,7 +46,7 @@
                             <VisualState x:Name="Normal">
                                 <VisualState.Setters>
                                     <Setter Property="BackgroundColor" Value="{x:OnPlatform UWP=Transparent, iOS=White}" />
-                                    <Setter TargetName="FlyoutItemLabel" Property="Label.TextColor" Value="{StaticResource Primary}" />
+                                    <Setter TargetName="FlyoutItemLabel" Property="Label.TextColor" Value="White" />
                                 </VisualState.Setters>
                             </VisualState>
                             <VisualState x:Name="Selected">
@@ -82,30 +83,29 @@
         FlyoutDisplayOptions="AsMultipleItems" will create a separate flyout item for each child element    
         https://docs.microsoft.com/dotnet/api/xamarin.forms.shellgroupitem.flyoutdisplayoptions?view=xamarin-forms
     -->
-    <FlyoutItem Title="About"
-                Icon="icon_about.png">
+    <FlyoutItem Title="About">
         <ShellContent Route="AboutPage"
                       ContentTemplate="{DataTemplate local:AboutPage}" />
     </FlyoutItem>
-    <FlyoutItem Title="Category"
-                Icon="icon_feed.png">
-        <ShellContent Route="CategoryPage"
-                      ContentTemplate="{DataTemplate categoryViews:CategoryPage}" />
-    </FlyoutItem>
-    <FlyoutItem Title="Customer"
-                Icon="icon_feed.png">
-        <ShellContent Route="CustomerPage"
-                      ContentTemplate="{DataTemplate customerViews:CustomerPage}" />
-    </FlyoutItem>
-    <FlyoutItem Title="Order"
-                Icon="icon_feed.png">
+    <FlyoutItem Title="Orders">
         <ShellContent Route="OrderPage"
                       ContentTemplate="{DataTemplate orderViews:OrderPage}" />
     </FlyoutItem>
-    <FlyoutItem Title="Dish"
-                Icon="icon_feed.png">
+    <FlyoutItem Title="Categories">
+        <ShellContent Route="CategoryPage"
+                      ContentTemplate="{DataTemplate categoryViews:CategoryPage}" />
+    </FlyoutItem>
+    <FlyoutItem Title="Dishes">
         <ShellContent Route="DishPage"
                       ContentTemplate="{DataTemplate dishViews:DishPage}" />
+    </FlyoutItem>
+    <FlyoutItem Title="Customers">
+        <ShellContent Route="CustomerPage"
+                      ContentTemplate="{DataTemplate customerViews:CustomerPage}" />
+    </FlyoutItem>
+    <FlyoutItem Title="Addresses">
+        <ShellContent Route="AddressPage"
+                      ContentTemplate="{DataTemplate addressViews:AddressPage}" />
     </FlyoutItem>
 
     <!-- When the Flyout is visible this will be a menu item you can tie a click behavior to  -->

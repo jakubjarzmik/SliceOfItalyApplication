@@ -1,28 +1,35 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="SliceOfItalyApplication.Views.CustomerViews.CustomerDetails">
+             x:Class="SliceOfItalyApplication.Views.AddressViews.AddressDetails">
     <StackLayout Spacing="20"
                  Padding="15">
         <StackLayout Orientation="Horizontal">
-            <Label Text="Name:"
+            <Label Text="Customer:"
                    FontSize="Medium"
                    FontAttributes="Bold" />
-            <Label Text="{Binding Name}"
+            <Label Text="{Binding Customer}"
                    FontSize="Medium" />
         </StackLayout>
         <StackLayout Orientation="Horizontal">
-            <Label Text="Email:"
+            <Label Text="Address 1st line:"
                    FontSize="Medium"
                    FontAttributes="Bold" />
-            <Label Text="{Binding Email}"
+            <Label Text="{Binding AddressLine1}"
                    FontSize="Medium" />
         </StackLayout>
         <StackLayout Orientation="Horizontal">
-            <Label Text="Phone:"
+            <Label Text="Postal Code:"
                    FontSize="Medium"
                    FontAttributes="Bold" />
-            <Label Text="{Binding Phone}"
+            <Label Text="{Binding PostalCode}"
+                   FontSize="Medium" />
+        </StackLayout>
+        <StackLayout Orientation="Horizontal">
+            <Label Text="City:"
+                   FontSize="Medium"
+                   FontAttributes="Bold" />
+            <Label Text="{Binding City}"
                    FontSize="Medium" />
         </StackLayout>
         <StackLayout Orientation="Horizontal">

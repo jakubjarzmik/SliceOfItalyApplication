@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="SliceOfItalyApplication.Views.CustomerViews.CustomerPage"
+             x:Class="SliceOfItalyApplication.Views.AddressViews.AddressPage"
              Title="{Binding Title}"
              xmlns:model="clr-namespace:SliceOfItalyApplication.Service.Reference"
-             xmlns:customerViewModels="clr-namespace:SliceOfItalyApplication.ViewModels.CustomerViewModels;assembly=SliceOfItalyApplication"
+             xmlns:addressViewModels="clr-namespace:SliceOfItalyApplication.ViewModels.AddressViewModels;assembly=SliceOfItalyApplication"
              xmlns:helpers="clr-namespace:SliceOfItalyApplication.Helpers;assembly=SliceOfItalyApplication"
              x:Name="BrowseItemsPage">
 
@@ -17,22 +17,28 @@
         <ResourceDictionary>
             <DataTemplate x:Key="DefaultTemplate">
                 <StackLayout Padding="10"
-                             x:DataType="model:Customer">
-                    <Label Text="{Binding Name}"
+                             x:DataType="model:AddressForView">
+                    <Label Text="{Binding CustomerName}"
                            LineBreakMode="NoWrap"
                            Style="{DynamicResource ListItemTextStyle}"
                            FontSize="16" />
-                    <Label Text="{Binding Email}"
+                    <Label Text="{Binding AddressLine1}"
                            LineBreakMode="NoWrap"
                            Style="{DynamicResource ListItemDetailTextStyle}"
                            FontSize="13" />
-                    <Label Text="{Binding Phone}"
-                           LineBreakMode="NoWrap"
-                           Style="{DynamicResource ListItemDetailTextStyle}"
-                           FontSize="13" />
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="{Binding PostalCode}"
+                               LineBreakMode="NoWrap"
+                               Style="{DynamicResource ListItemDetailTextStyle}"
+                               FontSize="13" />
+                        <Label Text="{Binding City}"
+                               LineBreakMode="NoWrap"
+                               Style="{DynamicResource ListItemDetailTextStyle}"
+                               FontSize="13" />
+                    </StackLayout>
                     <StackLayout.GestureRecognizers>
                         <TapGestureRecognizer NumberOfTapsRequired="1"
-                                              Command="{Binding Source={RelativeSource AncestorType={x:Type customerViewModels:CustomerViewModel}}, Path=ItemTapped}"
+                                              Command="{Binding Source={RelativeSource AncestorType={x:Type addressViewModels:AddressViewModel}}, Path=ItemTapped}"
                                               CommandParameter="{Binding .}">
                         </TapGestureRecognizer>
                     </StackLayout.GestureRecognizers>
@@ -41,23 +47,29 @@
 
             <DataTemplate x:Key="AlternateTemplate">
                 <StackLayout Padding="10"
-                             x:DataType="model:Customer"
+                             x:DataType="model:AddressForView"
                              BackgroundColor="#222222">
-                    <Label Text="{Binding Name}"
+                    <Label Text="{Binding CustomerName}"
                            LineBreakMode="NoWrap"
                            Style="{DynamicResource ListItemTextStyle}"
                            FontSize="16" />
-                    <Label Text="{Binding Email}"
+                    <Label Text="{Binding AddressLine1}"
                            LineBreakMode="NoWrap"
                            Style="{DynamicResource ListItemDetailTextStyle}"
                            FontSize="13" />
-                    <Label Text="{Binding Phone}"
-                           LineBreakMode="NoWrap"
-                           Style="{DynamicResource ListItemDetailTextStyle}"
-                           FontSize="13" />
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="{Binding PostalCode}"
+                               LineBreakMode="NoWrap"
+                               Style="{DynamicResource ListItemDetailTextStyle}"
+                               FontSize="13" />
+                        <Label Text="{Binding City}"
+                               LineBreakMode="NoWrap"
+                               Style="{DynamicResource ListItemDetailTextStyle}"
+                               FontSize="13" />
+                    </StackLayout>
                     <StackLayout.GestureRecognizers>
                         <TapGestureRecognizer NumberOfTapsRequired="1"
-                                              Command="{Binding Source={RelativeSource AncestorType={x:Type customerViewModels:CustomerViewModel}}, Path=ItemTapped}"
+                                              Command="{Binding Source={RelativeSource AncestorType={x:Type addressViewModels:AddressViewModel}}, Path=ItemTapped}"
                                               CommandParameter="{Binding .}">
                         </TapGestureRecognizer>
                     </StackLayout.GestureRecognizers>
@@ -70,7 +82,7 @@
         </ResourceDictionary>
     </ContentPage.Resources>
 
-    <RefreshView x:DataType="customerViewModels:CustomerViewModel"
+    <RefreshView x:DataType="addressViewModels:AddressViewModel"
                  Command="{Binding LoadItemsCommand}"
                  IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
         <CollectionView x:Name="ItemsListView"
